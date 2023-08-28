@@ -1,0 +1,16 @@
+body {
+  background: url('https://wallpapercave.com/wp/wp1904056.jpg');
+}
+h1 {
+  display: block;
+  position: absolute;
+  top: 50%;
+}
+h2 {
+  position: absolute;
+  top: 55%;
+}
+p {
+  position: absolute;
+  top: 60%;
+}

@@ -35,7 +35,7 @@ def count_text():
   if all_text_get == typed_text_get:
     end_time = time.time()
     elapsed_time = end_time - start_time
-    words = len(typed_text_get)
+    words = len(typed_text_get.split())
     per_minute = (words / elapsed_time) * 60
     label.config(text=f"Done! Your typing speed is {per_minute:.2f} words per minute")
   else:

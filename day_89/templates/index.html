@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Todo List</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h2>Todo List</h2>
+      <form action="/add" method="post">
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" placeholder="Add a new task" name="content">
+          <div class="input-group-append">
+            <button class="btn btn-primary" type="submit">Add</button>
+          </div>
+        </div>
+      </form>
+      <ul class="list-group">
+        {% for todo in todos %}
+          <li class="list-group-item">
+            <input type="checkbox" onchange="location.href='/toggle/{{ todo.id }}'" {{ 'checked' if todo.completed else '' }}>
+            <span {% if todo.completed %} style="text-decoration: line-through;" {% endif %}>{{ todo.content }}</span>
+            <a href="/delete/{{ todo.id }}" class="btn btn-danger btn-sm float-right ml-2">Delete</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </body>
+</html>

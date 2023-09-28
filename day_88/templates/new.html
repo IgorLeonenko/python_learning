@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cafe&Wifi API</title>
+
+  {{ bootstrap.load_css() }}
+</head>
+<body>
+  <div class="container">
+    <h3>Add new cafe</h3>
+    <a href="/" class="btn btn-secondary">Go back</a>
+    <div class="row">
+      <form action="{{ url_for('add_new_cafe') }}" method="post" class="col-sm-4">
+        <div class="form-group">
+          <label for="name">Cafe name:</label>
+          <input type="text" class="form-control" name="name" id="name">
+        </div>
+        <div class="form-group">
+          <label for="map_url">Map url:</label>
+          <input type="text" class="form-control" name="map_url" id="map_url">
+        </div>
+        <div class="form-group">
+          <label for="img_url">Map url:</label>
+          <input type="text" class="form-control" name="img_url" id="img_url">
+        </div>
+        <div class="form-group">
+          <label for="location">Location:</label>
+          <input type="text" class="form-control" name="location" id="location">
+        </div>
+        <div class="form-group">
+          <label for="seats">Seats:</label>
+          <input type="text" class="form-control" name="seats" id="seats">
+        </div>
+        <div class="form-group">
+          <label for="coffee_price">Coffe price:</label>
+          <input type="text" class="form-control" name="coffee_price" id="coffee_price">
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" name="has_sockets"> Sockets
+          </label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" name="has_toilet"> Toilet
+          </label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" name="has_wifi"> WIFI
+          </label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" name="can_take_calls"> Can take calls
+          </label>
+        </div>
+        <div class="form-check">
+          <label class="form-check-label">
+            <input class="form-check-input" type="checkbox" name="can_take_calls"> Can take calls
+          </label>
+        </div>
+        <button type="submit" class="btn btn-primary">Save</button>
+      </form>
+    </div>
+  </div>
+</body>

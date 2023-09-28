@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cafe&Wifi API</title>
+
+  {{ bootstrap.load_css() }}
+
+  <style>
+    .card {
+      width: 500px;
+      margin: 10px auto;
+    }
+    .card img {
+      width: 500px;
+      height: 250px;
+    }
+  </style>
+</head>
+<body>
+  <h1 class="text-center">Welcome to the Cafe & Wifi</h1>
+  <div class="container">
+    <a href="{{ url_for('new_cafe') }}" class="btn btn-success">Add new cafe</a>
+    <div class="row">
+      {% for cafe in cafes %}
+        <div class="col-sm-6">
+          <div class="card">
+            <img class="card-img-top" src="{{ cafe.img_url }}" alt="cafe image">
+            <div class="card-body">
+              <h5 class="card-title text-right">{{ cafe.name }} </h5>
+              <a class="text-right d-block" href="{{ url_for('delete_cafe', cafe_id=cafe.id) }}">Delete</a>
+              <p class="card-text">Where: {{ cafe.location }}</p>
+              <p class="card-text">Seats: {{ cafe.seats }}</p>
+              <p class="card-text">Toilet: {{ cafe.has_toilet|bool_to_yes_no }}</p>
+              <p class="card-text">WIFI: {{ cafe.has_wifi|bool_to_yes_no }}</p>
+              <p class="card-text">Can take calls: {{ cafe.can_take_calls|bool_to_yes_no  }}</p>
+              <p class="card-text">Coffee price: {{cafe.coffee_price }}</p>
+              <a href="{{ cafe.map_url }}" class="btn btn-primary" target="_blank" >Show on map</a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+      </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Colour palette image processing</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h2>Colour palette image processing</h2>
+      <form action="/process" method="post" enctype="multipart/form-data">
+        <div class="input-group mb-3">
+          <input type="file" name="image" class="form-control-file" id="image" accept="image/jpeg, image/png" required>
+          <button class="btn btn-primary mt-1" type="submit">Process</button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

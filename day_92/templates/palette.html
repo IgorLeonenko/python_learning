@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Colors palette</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h2>Colors palette</h2>
+      <a href="/" class="btn btn-primary">Go back</a>
+      <div class="row">
+        {% for color in colors %}
+          <div class="col-sm-2  mr-1 mb-2">
+            <p>{{"#{:02x}{:02x}{:02x}".format(color[0], color[1], color[2])}}</p>
+            <div class="card" style="width: 150px; height: 120px; background-color: rgba{{ color }}"></div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </body>
+</html>

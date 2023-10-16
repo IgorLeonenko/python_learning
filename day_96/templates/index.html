@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Breweries API UI wrapper</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <h1 class="text-center">Welcome to Breweries API UI wrapper</h1>
+    <div class="container">
+      <div class="row">
+        <form action="{{ url_for('paginate') }}" method="post" class="col-sm-12 mb-3">
+          <label for="page">Select a page</label>
+          <select class="form-control col-sm-1 mb-2" name="page" id="page">
+            {% for i in range(1, pages_size) %}
+              <option value="{{ i }}">{{ i }}</option>
+            {% endfor %}
+          </select>
+          <button type="submit" class="btn btn-primary">Show page</button>
+        </form>
+
+        {% for brewery in breweries %}
+          <div class="col-sm-6 mb-2">
+            <div class="card">
+              <div class="card-body">
+                <p class="card-text">Name: {{ brewery['name'] }}</p>
+                <p class="card-text">Phone: {{ brewery['phone'] }}</p>
+                <p class="card-text">Address: {{ brewery['city'] }}, {{ brewery['address_1'] }}</p>
+                <p class="card-text">Website: <a href={{ brewery['website_url'] }} target="blank_">{{ brewery['website_url'] }}</a></p>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </body>
+</html>
